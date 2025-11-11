@@ -1,54 +1,42 @@
 #ifndef SACH_H
 #define SACH_H
 
-#include <iostream>
 #include <string>
 #include <sstream>
-#include <vector>
-#include <fstream>
 using namespace std;
 
-class Sach {
-private:
-    string MaSach;
-    string TenSach;
-    string TheLoai;
-    string TacGia;
-    string NamXB;
+class Sach
+{
+protected:
+    char MaSach[10];
+    char TenSach[100];
+    char TheLoai[100];
+    char TacGia[100];
+    int NamXuatBan;
 
 public:
     Sach() {}
-    Sach(string ma, string ten, string loai, string tg, string nam)
-        : MaSach(ma), TenSach(ten), TheLoai(loai), TacGia(tg), NamXB(nam) {}
+    // Constructor tương thích với string
+    Sach(const string& ma, const string& ten, const string& loai, const string& tg, int namXB);
 
-    void setSach(string ma, string ten, string loai, string tg, string nam) {
-        MaSach = ma;
-        TenSach = ten;
-        TheLoai = loai;
-        TacGia = tg;
-        NamXB = nam;
-    }
+    // Setters
+    void setSach(const char[], const char[], const char[], const char[], int);
+    void setMaSach(const char[]);
+    void setTenSach(const char[]);
+    void setTheLoai(const char[]);
+    void setTacGia(const char[]);
+    void setNamXuatBan(int);
 
-    string getMaSach() const { return MaSach; }
-    string getTenSach() const { return TenSach; }
-    string getTheLoai() const { return TheLoai; }
-    string getTacGia() const { return TacGia; }
-    string getNamXB() const { return NamXB; }
+    // Getters
+    string getMaSach() const;
+    string getTenSach() const;
+    string getTheLoai() const;
+    string getTacGia() const;
+    int getNamXB() const;
 
-    string toFileString() const {
-        return MaSach + "|" + TenSach + "|" + TheLoai + "|" + TacGia + "|" + NamXB;
-    }
-
-    static Sach fromFileString(const string &line) {
-        stringstream ss(line);
-        string ma, ten, loai, tg, nam;
-        getline(ss, ma, '|');
-        getline(ss, ten, '|');
-        getline(ss, loai, '|');
-        getline(ss, tg, '|');
-        getline(ss, nam, '|');
-        return Sach(ma, ten, loai, tg, nam);
-    }
+    // Hàm hỗ trợ đọc/ghi file
+    string toFileString() const;
+    static Sach fromFileString(const string& line);
 };
 
 #endif

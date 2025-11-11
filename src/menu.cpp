@@ -1,6 +1,7 @@
 #include "../include/menu.h"
 #include <iostream>
 #include <limits>
+#include <iomanip>
 using namespace std;
 
 // Danh sách toàn cục
@@ -20,7 +21,6 @@ void menuSinhVien() {
 
         int ch;
         if (!(cin >> ch)) {
-            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Nhap sai. Thu lai.\n";
             continue;
@@ -40,6 +40,7 @@ void menuSinhVien() {
 
 void menuSach() {
     while (true) {
+
         cout << "\n===== QUAN LY SACH =====\n";
         cout << "1. Them sach\n";
         cout << "2. Hien thi danh sach\n";
@@ -70,6 +71,7 @@ void menuSach() {
 
 void menuMuonTra() {
     while (true) {
+
         cout << "\n===== QUAN LY MUON TRA =====\n";
         cout << "1. Muon sach\n";
         cout << "2. Tra sach\n";

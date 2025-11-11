@@ -1,2 +1,11 @@
 DE200012|Nguyen Thanh Binh|IC
-DE200042|Ho Le Uyen Thu|SE
+DE200042|Ho Le Uyen Thao|SE
+DE200276|Dinh Phuoc Hoang|IC
+DE200041|Le Ho Tuan Kiet|IC
+DE200047|Nguyen Van Nhat|IC
+DE200100|Tran Thanh Thang|IC
+DE200237|Pham Anh Khoa|IC
+DE200469|Phan Cong Binh|IC
+DE200038|Tran Dinh Nhat Huy|IC
+DE200012|Nguyen Pham Gia Bao|SE
+DE203713|Le Thi Yen Nhi|IA

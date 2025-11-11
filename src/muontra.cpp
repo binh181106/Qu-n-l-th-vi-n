@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include <vector>
 using namespace std;
 
@@ -65,8 +66,16 @@ void traSach(vector<MuonTra>& dsMuon) {
 }
 
 void hienThiDanhSachMuon(const vector<MuonTra>& dsMuon) {
-    cout << "\n===== DANH SACH MUON SACH =====\n";
-    for (const auto& mt : dsMuon)
-        cout << "MSV: " << mt.getMSV() << " | Ma sach: " << mt.getMaSach() << "\n";
-    cout << "===============================\n";
+    cout << "\n===== DANH SACH MUON TRA =====\n";
+    cout << left << setw(25) << "Ma Sinh Vien"
+         << setw(25) << "Ma Sach" << endl;
+    cout << string(50, '-') << endl;
+
+    for (const auto& mt : dsMuon) {
+        cout << left << setw(25) << mt.getMSV()
+             << setw(25) << mt.getMaSach() << endl;
+    }
+
+    cout << string(50, '-') << endl;
 }
+

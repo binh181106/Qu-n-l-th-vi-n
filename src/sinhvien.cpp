@@ -3,22 +3,36 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 using namespace std;
 
 void themSinhVien(vector<SinhVien>& dsSV) {
-    string msv, hoten, nganh;
+    string msv, hoTen, nganhHoc;
     cout << "Nhap ma sinh vien: ";
-    getline(cin, msv);
+    cin >> msv;
+
+    // kiểm tra trùng mã
+    for (const auto& sv : dsSV) {
+        if (sv.getMSV() == msv) {
+            cout << "Ma sinh vien da ton tai! Khong the them trung.\n";
+            return;
+        }
+    }
+
+    cin.ignore();
     cout << "Nhap ho ten: ";
-    getline(cin, hoten);
+    getline(cin, hoTen);
     cout << "Nhap nganh hoc: ";
-    getline(cin, nganh);
+    getline(cin, nganhHoc);
 
-    dsSV.push_back(SinhVien(msv, hoten, nganh));
+    SinhVien sv(msv, hoTen, nganhHoc);
+    dsSV.push_back(sv);
 
+    // lưu lại vào file
     ofstream file("data/sinhvien.txt");
-    for (auto& sv : dsSV)
-        file << sv.toFileString() << "\n";
+    for (const auto& s : dsSV)
+        file << s.toFileString() << endl;
+    file.close();
 
     cout << "Da them sinh vien thanh cong!\n";
 }
@@ -35,10 +49,21 @@ void docFileSinhVien(vector<SinhVien>& dsSV) {
 
 void hienThiDanhSachSV(const vector<SinhVien>& dsSV) {
     cout << "\n===== DANH SACH SINH VIEN =====\n";
-    for (const auto& sv : dsSV)
-        cout << sv.getMSV() << " | " << sv.getHoTen() << " | " << sv.getNganhHoc() << "\n";
-    cout << "===============================\n";
+    cout << left << setw(15) << "Ma SV"
+         << setw(25) << "Ho Ten"
+         << setw(25) << "Nganh Hoc" << endl;
+    cout << string(65, '-') << endl;
+
+    for (const auto& sv : dsSV) {
+        cout << left << setw(15) << sv.getMSV()
+             << setw(25) << sv.getHoTen()
+             << setw(25) << sv.getNganhHoc() << endl;
+    }
+
+    cout << string(65, '-') << endl;
 }
+
+
 
 void xoaSinhVien(vector<SinhVien>& dsSV) {
     string msv;

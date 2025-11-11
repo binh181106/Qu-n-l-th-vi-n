@@ -1,1 +1,6 @@
 AAAAAA|Principle of physics|Science|Author|2024
+AAAAAB|Discreted mathematics|Science|Unknowed|2023
+AAAAAC|Shelock Homes|Detective|Author|1990
+AAAAAD|HSK1|Language|Huynh Vu Bien|2024
+AAAAAE|Modern operating system|Computer science|unknowed|2023
+

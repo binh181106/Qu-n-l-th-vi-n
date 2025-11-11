@@ -3,8 +3,7 @@
 using namespace std;
 
 int main() {
-    // Tự tạo thư mục data nếu chưa tồn tại
-    system("mkdir -p data");
+    system("if not exist data mkdir data");
 
     cout << "CHUONG TRINH QUAN LY THU VIEN" << endl;
     menu();
