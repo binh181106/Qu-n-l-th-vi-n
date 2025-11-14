@@ -160,8 +160,8 @@ void hienThiDanhSachSach(const vector<Sach>& dsSach) {
 void xoaSach(vector<Sach>& dsSach) {
     string ma;
     cout << "Nhap ma sach can xoa: ";
-    cin.ignore();
-    getline(cin, ma);
+    cin >> ma;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     bool found = false;
     for (auto it = dsSach.begin(); it != dsSach.end(); ++it) {
@@ -184,8 +184,8 @@ void xoaSach(vector<Sach>& dsSach) {
 void suaSach(vector<Sach>& dsSach) {
     string ma;
     cout << "Nhap ma sach can sua: ";
-    cin.ignore();
-    getline(cin, ma);
+    cin >> ma;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     for (auto& s : dsSach) {
         if (s.getMaSach() == ma) {
